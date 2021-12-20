@@ -81,8 +81,7 @@ def run():
         first_sched_time = this_morning + datetime.timedelta(days=1)
     task.start()
     # Compute a bunch of times spaced 12hrs apart, starting with first_sched_time
-    first_sched_time = datetime.datetime.now()
-    sched_times = [first_sched_time + datetime.timedelta(seconds=10*n) for n in range(total_events)]
+    sched_times = [first_sched_time + datetime.timedelta(hours=12*n) for n in range(total_events)]
     # The scheduler object expects a float similar to that returned by time.time
     # This transforms the datetime objects to match that expectation
     sched_times_seconds = [dt.timestamp() for dt in sched_times]
